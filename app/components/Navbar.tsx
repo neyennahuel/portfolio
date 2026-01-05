@@ -23,7 +23,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
 
         {/* LOGO */}
-        <h2 className="text-2xl font-bold text-white tracking-tight">
+        <h2 className="text-2xl font-bold text-gray-200 tracking-tight">
           Nahuel<span className="text-blue-500">.dev</span>
         </h2>
 

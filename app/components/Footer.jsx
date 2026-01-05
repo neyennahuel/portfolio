@@ -29,7 +29,7 @@ export default function Footer() {
           </a>
 
           <a
-            href="https://github.com/tuusuario"
+            href="https://github.com/nahuelwhittall"
             target="_blank"
             className="hover:text-white transition flex items-center gap-2"
           >
