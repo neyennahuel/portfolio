@@ -1,7 +1,8 @@
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-const GITHUB_USERNAME = "nahuelwhittall";
+const GITHUB_USERNAME = "neyennahuel";
+const EXCLUDED_REPOS = new Set(["portfolio", "portfolio-pro"]);
 
 type Repo = {
   id: number;
@@ -28,7 +29,7 @@ async function fetchGitHubProjects(): Promise<Repo[]> {
     if (!response.ok) return [];
 
     const repos = (await response.json()) as Repo[];
-    return repos.filter((repo) => !repo.fork);
+    return repos.filter((repo) => !repo.fork && !EXCLUDED_REPOS.has(repo.name));
   } catch (error) {
     console.error("Error al obtener proyectos de GitHub:", error);
     return [];
