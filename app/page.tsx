@@ -22,7 +22,7 @@ async function fetchGitHubProjects(): Promise<Repo[]> {
       `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=6`,
       {
         headers: { Accept: "application/vnd.github+json" },
-        cache: "no-store",
+        next: { revalidate: 3600 },
       },
     );
 
@@ -222,6 +222,7 @@ export default async function Home() {
     </>
   );
 }
+
 
 
 
