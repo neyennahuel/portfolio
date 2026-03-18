@@ -6,7 +6,12 @@ import Navbar from "./components/Navbar";
 
 const GITHUB_USERNAME = "neyennahuel";
 const BASE_PATH = process.env.NODE_ENV === "production" ? "/portfolio" : "";
-const EXCLUDED_REPOS = new Set(["portfolio", "portfolio-pro", "Repar-Ando"]);
+const EXCLUDED_REPOS = new Set([
+  "portfolio",
+  "portfolio-pro",
+  "Repar-Ando",
+  "BurgerBite",
+]);
 
 const FEATURED_PROJECTS: FeaturedProject[] = [
   {
@@ -14,12 +19,13 @@ const FEATURED_PROJECTS: FeaturedProject[] = [
     eyebrow: "Proyecto destacado",
     name: "Consultorio",
     description:
-      "Sistema privado para profesionales de la salud y equipos de secretaria. Permite gestionar pacientes, asignar turnos, enviar confirmaciones automaticas por WhatsApp y administrar evoluciones, notas, archivos y exportaciones.",
+      "Sistema privado responsive para profesionales de la salud y equipos de secretaria. Permite gestionar pacientes, asignar turnos, enviar confirmaciones automaticas por WhatsApp y administrar evoluciones, notas, archivos y exportaciones.",
     badges: [
       "Proyecto comercial",
       "En funcionamiento",
       "Codigo privado",
       "Multiusuario",
+      "Responsive",
     ],
     actions: [
       {
@@ -34,7 +40,7 @@ const FEATURED_PROJECTS: FeaturedProject[] = [
       {
         title: "Agenda y pacientes",
         description:
-          "Carga y seguimiento de pacientes desde una sola interfaz para el trabajo diario del consultorio.",
+          "Carga y seguimiento de pacientes desde una sola interfaz, pensada para usarse con comodidad tanto en desktop como en celular.",
       },
       {
         title: "Confirmaciones por WhatsApp",
@@ -69,6 +75,7 @@ const FEATURED_PROJECTS: FeaturedProject[] = [
       "Gestion de turnos",
       "Pacientes",
       "WhatsApp bot",
+      "Responsive",
       "Archivos",
       "Exportacion",
       "Cloudflare",
@@ -98,6 +105,98 @@ const FEATURED_PROJECTS: FeaturedProject[] = [
         alt: "Captura del sistema Consultorio 4",
         width: 1363,
         height: 627,
+      },
+    ],
+  },
+  {
+    id: "burgerbite",
+    eyebrow: "Proyecto destacado",
+    name: "BurgerBite",
+    description:
+      "Carta web responsive para un local gastronomico. Permite armar el pedido online, calcular importes y abrir un chat de WhatsApp con el mensaje ya cargado, incluyendo costos y detalle del pedido.",
+    badges: [
+      "Proyecto comercial",
+      "En funcionamiento",
+      "Responsive",
+      "GitHub Pages",
+      "Presupuesto acotado",
+    ],
+    actions: [
+      {
+        label: "Ver demo",
+        href: "https://neyennahuel.github.io/BurgerBite/",
+        variant: "primary",
+      },
+      {
+        label: "Ver GitHub",
+        href: "https://github.com/neyennahuel/BurgerBite",
+        variant: "secondary",
+      },
+    ],
+    note: "Publicado en GitHub Pages mientras se define el dominio propio",
+    featureTitle: "Aspectos clave",
+    featureItems: [
+      {
+        title: "Carta web y pedido guiado",
+        description:
+          "La carta esta pensada para una navegacion simple, clara y responsive, priorizando la experiencia desde el celular sin perder usabilidad en desktop.",
+      },
+      {
+        title: "Pedido listo para WhatsApp",
+        description:
+          "Al finalizar, el sistema prepara el mensaje con productos, cantidades, costos y detalle del pedido para continuar la compra por chat.",
+      },
+      {
+        title: "Gestion sin panel de admin",
+        description:
+          "Los productos y valores se administran desde una hoja de calculo, evitando desarrollar un login extra y reduciendo costo de implementacion.",
+      },
+    ],
+    detailTitle: "Operacion y despliegue",
+    detailItems: [
+      {
+        title: "Responsive",
+        description:
+          "La experiencia acompana el flujo real del cliente: elegir desde el telefono y mandar el pedido por WhatsApp en pocos pasos.",
+      },
+      {
+        title: "Hoja de calculo",
+        description:
+          "La administracion del menu se resuelve desde una hoja de calculo para que el negocio pueda actualizar items sin depender de un panel complejo.",
+      },
+      {
+        title: "Publicacion actual",
+        description:
+          "El proyecto esta en linea desde GitHub Pages porque el dominio propio todavia no fue activado por el cliente.",
+      },
+    ],
+    tags: [
+      "Carta web",
+      "Responsive",
+      "WhatsApp",
+      "Hoja de calculo",
+      "UX",
+      "GitHub Pages",
+    ],
+    galleryTitle: "Capturas de BurgerBite",
+    screenshots: [
+      {
+        src: "/projects/burgerbite/burgerbite-02.jpeg",
+        alt: "Vista mobile de BurgerBite 1",
+        width: 707,
+        height: 1280,
+      },
+      {
+        src: "/projects/burgerbite/burgerbite-03.jpeg",
+        alt: "Vista mobile de BurgerBite 2",
+        width: 687,
+        height: 1280,
+      },
+      {
+        src: "/projects/burgerbite/burgerbite-01.jpg",
+        alt: "Hoja de calculo de BurgerBite",
+        width: 875,
+        height: 452,
       },
     ],
   },
