@@ -1,13 +1,16 @@
 ﻿import type { NextConfig } from "next";
 
-const repo = "portfolio-pro"; // Cambia si tu repo se llama distinto
+const repo = "portfolio";
+const isProduction = process.env.NODE_ENV === "production";
 
 const nextConfig: NextConfig = {
   output: "export",
   trailingSlash: true,
-  basePath: `/${repo}`,
-  assetPrefix: `/${repo}/`,
   images: { unoptimized: true },
+  ...(isProduction && {
+    basePath: `/${repo}`,
+    assetPrefix: `/${repo}/`,
+  }),
 };
 
 export default nextConfig;
