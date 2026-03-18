@@ -1,8 +1,8 @@
 ﻿import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Image from "next/image";
 
 const GITHUB_USERNAME = "neyennahuel";
+const BASE_PATH = process.env.NODE_ENV === "production" ? "/portfolio" : "";
 const EXCLUDED_REPOS = new Set(["portfolio", "portfolio-pro"]);
 const FEATURED_PROJECT = {
   name: "Consultorio",
@@ -301,11 +301,12 @@ export default async function Home() {
                         key={screenshot.src}
                         className="overflow-hidden rounded-3xl border border-border/60 bg-surface shadow-sm"
                       >
-                        <Image
-                          src={screenshot.src}
+                        <img
+                          src={`${BASE_PATH}${screenshot.src}`}
                           alt={screenshot.alt}
                           width={screenshot.width}
                           height={screenshot.height}
+                          loading="lazy"
                           className="h-auto w-full"
                         />
                       </div>
