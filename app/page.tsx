@@ -3,7 +3,7 @@ import Footer from "./components/Footer";
 
 const GITHUB_USERNAME = "neyennahuel";
 const BASE_PATH = process.env.NODE_ENV === "production" ? "/portfolio" : "";
-const EXCLUDED_REPOS = new Set(["portfolio", "portfolio-pro"]);
+const EXCLUDED_REPOS = new Set(["portfolio", "portfolio-pro", "Repar-Ando"]);
 const FEATURED_PROJECT = {
   name: "Consultorio",
   url: "https://consultorio.efectossaludybienestar.com.ar/pages/login.html",
@@ -71,6 +71,66 @@ const FEATURED_PROJECT = {
     "Archivos",
     "Exportacion",
     "Cloudflare",
+  ],
+};
+
+const REPARANDO_PROJECT = {
+  name: "Repar-Ando",
+  repoUrl: "https://github.com/neyennahuel/Repar-Ando",
+  releasesUrl: "https://github.com/neyennahuel/Repar-Ando/releases",
+  description:
+    "Aplicacion hecha para mi trabajo tecnico. Centraliza control de stock de PCs, mantenimiento, insumos, notificaciones, agrupacion por equipos y configuracion personalizada de cada cuanto hacer los service.",
+  badges: [
+    "Proyecto propio",
+    "En uso",
+    "Instalador",
+    "Releases en GitHub",
+    "ES / EN / PT",
+  ],
+  highlights: [
+    {
+      title: "Stock y mantenimiento",
+      description:
+        "Controla stock de PCs, historiales de mantenimiento y frecuencia configurable de service por equipo.",
+    },
+    {
+      title: "Operacion diaria",
+      description:
+        "Incluye control simple de insumos, notificaciones y division por grupos para ordenar el trabajo tecnico.",
+    },
+    {
+      title: "Distribucion y actualizacion",
+      description:
+        "Se entrega con instalador y publica actualizaciones mediante releases en GitHub para mantenerla al dia.",
+    },
+  ],
+  stack: [
+    "Desktop app",
+    "Stock de PC",
+    "Mantenimiento",
+    "Insumos",
+    "Notificaciones",
+    "Multilenguaje",
+  ],
+  screenshots: [
+    {
+      src: "/projects/reparando/reparando-01.jpg",
+      alt: "Captura de Repar-Ando 1",
+      width: 1365,
+      height: 628,
+    },
+    {
+      src: "/projects/reparando/reparando-02.jpg",
+      alt: "Captura de Repar-Ando 2",
+      width: 1350,
+      height: 633,
+    },
+    {
+      src: "/projects/reparando/reparando-03.jpg",
+      alt: "Captura de Repar-Ando 3",
+      width: 1365,
+      height: 629,
+    },
   ],
 };
 
@@ -300,6 +360,110 @@ export default async function Home() {
                       <div
                         key={screenshot.src}
                         className="overflow-hidden rounded-3xl border border-border/60 bg-surface shadow-sm"
+                      >
+                        <img
+                          src={`${BASE_PATH}${screenshot.src}`}
+                          alt={screenshot.alt}
+                          width={screenshot.width}
+                          height={screenshot.height}
+                          loading="lazy"
+                          className="h-auto w-full"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mb-14 rounded-[2rem] border border-border/60 bg-surface px-8 py-8 text-left shadow-[var(--shadow)]">
+              <p className="mb-4 text-xs uppercase tracking-[0.35em] text-muted">
+                Proyecto propio destacado
+              </p>
+
+              <div className="mb-5 flex flex-wrap gap-2">
+                {REPARANDO_PROJECT.badges.map((badge) => (
+                  <span
+                    key={badge}
+                    className="rounded-full border border-border/60 bg-surface-muted px-3 py-1 text-sm text-foreground"
+                  >
+                    {badge}
+                  </span>
+                ))}
+              </div>
+
+              <div className="grid gap-8 xl:grid-cols-[1fr_1.05fr] xl:items-start">
+                <div>
+                  <h3 className="mb-4 text-3xl font-semibold text-foreground md:text-4xl">
+                    {REPARANDO_PROJECT.name}
+                  </h3>
+
+                  <p className="max-w-3xl text-lg leading-relaxed text-muted">
+                    {REPARANDO_PROJECT.description}
+                  </p>
+
+                  <div className="mt-8 flex flex-wrap gap-3">
+                    <a
+                      href={REPARANDO_PROJECT.repoUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="rounded-full bg-accent px-6 py-3 font-medium text-white shadow-lg shadow-blue-500/30 transition hover:-translate-y-0.5"
+                    >
+                      Ver GitHub
+                    </a>
+                    <a
+                      href={REPARANDO_PROJECT.releasesUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="rounded-full border border-border/70 bg-surface px-6 py-3 font-medium text-foreground transition hover:-translate-y-0.5 hover:shadow-md"
+                    >
+                      Ver releases
+                    </a>
+                    <span className="rounded-full border border-border/60 bg-surface-muted px-6 py-3 text-sm font-medium text-muted">
+                      Instalador con actualizaciones publicadas
+                    </span>
+                  </div>
+
+                  <div className="mt-8 grid gap-4">
+                    {REPARANDO_PROJECT.highlights.map((highlight) => (
+                      <div
+                        key={highlight.title}
+                        className="rounded-2xl border border-border/60 bg-surface-muted/70 p-5"
+                      >
+                        <h4 className="mb-2 text-base font-semibold text-foreground">
+                          {highlight.title}
+                        </h4>
+                        <p className="text-sm leading-relaxed text-muted">
+                          {highlight.description}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {REPARANDO_PROJECT.stack.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-border/60 bg-surface px-3 py-1 text-sm text-foreground"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <p className="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-muted">
+                    Capturas de Repar-Ando
+                  </p>
+
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    {REPARANDO_PROJECT.screenshots.map((screenshot, index) => (
+                      <div
+                        key={screenshot.src}
+                        className={`overflow-hidden rounded-3xl border border-border/60 bg-surface shadow-sm ${
+                          index === 2 ? "sm:col-span-2" : ""
+                        }`}
                       >
                         <img
                           src={`${BASE_PATH}${screenshot.src}`}
