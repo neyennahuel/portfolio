@@ -1,5 +1,6 @@
 ﻿import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Image from "next/image";
 
 const GITHUB_USERNAME = "neyennahuel";
 const EXCLUDED_REPOS = new Set(["portfolio", "portfolio-pro"]);
@@ -7,13 +8,61 @@ const FEATURED_PROJECT = {
   name: "Consultorio",
   url: "https://consultorio.efectossaludybienestar.com.ar/pages/login.html",
   description:
-    "Sistema privado para profesionales de la salud. Permite gestionar pacientes, asignar turnos, enviar confirmaciones automaticas por WhatsApp y administrar evoluciones, notas, archivos y exportaciones.",
-  badges: ["Proyecto comercial", "En funcionamiento", "Codigo privado"],
+    "Sistema privado para profesionales de la salud y equipos de secretaria. Permite gestionar pacientes, asignar turnos, enviar confirmaciones automaticas por WhatsApp y administrar evoluciones, notas, archivos y exportaciones.",
+  badges: [
+    "Proyecto comercial",
+    "En funcionamiento",
+    "Codigo privado",
+    "Multiusuario",
+  ],
   highlights: [
     "Carga y seguimiento de pacientes desde una sola interfaz.",
     "Agenda de turnos con recordatorios automaticos por WhatsApp.",
     "Modulo de evoluciones, notas internas y archivos adjuntos.",
     "Exportacion de informacion para trabajo administrativo y seguimiento.",
+  ],
+  roles: [
+    {
+      name: "Profesional",
+      description:
+        "Gestiona sus pacientes, asigna turnos y registra evoluciones, notas y archivos desde su cuenta.",
+    },
+    {
+      name: "Admin / Secretaria",
+      description:
+        "Da de alta o baja profesionales y tambien puede cargar turnos para la operacion diaria del consultorio.",
+    },
+    {
+      name: "Programador",
+      description:
+        "Cuenta interna para soporte tecnico, con acciones para forzar el bot de WhatsApp y revisar un panel de errores.",
+    },
+  ],
+  screenshots: [
+    {
+      src: "/projects/consultorio/consultorio-01.jpg",
+      alt: "Captura del sistema Consultorio 1",
+      width: 1365,
+      height: 633,
+    },
+    {
+      src: "/projects/consultorio/consultorio-02.jpg",
+      alt: "Captura del sistema Consultorio 2",
+      width: 1365,
+      height: 631,
+    },
+    {
+      src: "/projects/consultorio/consultorio-03.jpg",
+      alt: "Captura del sistema Consultorio 3",
+      width: 1365,
+      height: 634,
+    },
+    {
+      src: "/projects/consultorio/consultorio-04.jpg",
+      alt: "Captura del sistema Consultorio 4",
+      width: 1363,
+      height: 627,
+    },
   ],
   stack: [
     "Gestion de turnos",
@@ -213,6 +262,53 @@ export default async function Home() {
                       >
                         {item}
                       </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-10 grid gap-8 xl:grid-cols-[0.8fr_1.2fr]">
+                <div className="rounded-3xl border border-border/60 bg-surface-muted/70 p-6">
+                  <p className="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-muted">
+                    Accesos por rol
+                  </p>
+
+                  <div className="grid gap-4">
+                    {FEATURED_PROJECT.roles.map((role) => (
+                      <div
+                        key={role.name}
+                        className="rounded-2xl border border-border/60 bg-surface p-4"
+                      >
+                        <h4 className="mb-2 text-base font-semibold text-foreground">
+                          {role.name}
+                        </h4>
+                        <p className="text-sm leading-relaxed text-muted">
+                          {role.description}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <p className="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-muted">
+                    Capturas reales del sistema
+                  </p>
+
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    {FEATURED_PROJECT.screenshots.map((screenshot) => (
+                      <div
+                        key={screenshot.src}
+                        className="overflow-hidden rounded-3xl border border-border/60 bg-surface shadow-sm"
+                      >
+                        <Image
+                          src={screenshot.src}
+                          alt={screenshot.alt}
+                          width={screenshot.width}
+                          height={screenshot.height}
+                          className="h-auto w-full"
+                        />
+                      </div>
                     ))}
                   </div>
                 </div>
