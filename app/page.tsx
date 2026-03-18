@@ -1,138 +1,199 @@
-﻿import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import FeaturedProjects, {
+  type FeaturedProject,
+} from "./components/FeaturedProjects";
+import Navbar from "./components/Navbar";
 
 const GITHUB_USERNAME = "neyennahuel";
 const BASE_PATH = process.env.NODE_ENV === "production" ? "/portfolio" : "";
 const EXCLUDED_REPOS = new Set(["portfolio", "portfolio-pro", "Repar-Ando"]);
-const FEATURED_PROJECT = {
-  name: "Consultorio",
-  url: "https://consultorio.efectossaludybienestar.com.ar/pages/login.html",
-  description:
-    "Sistema privado para profesionales de la salud y equipos de secretaria. Permite gestionar pacientes, asignar turnos, enviar confirmaciones automaticas por WhatsApp y administrar evoluciones, notas, archivos y exportaciones.",
-  badges: [
-    "Proyecto comercial",
-    "En funcionamiento",
-    "Codigo privado",
-    "Multiusuario",
-  ],
-  highlights: [
-    "Carga y seguimiento de pacientes desde una sola interfaz.",
-    "Agenda de turnos con recordatorios automaticos por WhatsApp.",
-    "Modulo de evoluciones, notas internas y archivos adjuntos.",
-    "Exportacion de informacion para trabajo administrativo y seguimiento.",
-  ],
-  roles: [
-    {
-      name: "Profesional",
-      description:
-        "Gestiona sus pacientes, asigna turnos y registra evoluciones, notas y archivos desde su cuenta.",
-    },
-    {
-      name: "Admin / Secretaria",
-      description:
-        "Da de alta o baja profesionales y tambien puede cargar turnos para la operacion diaria del consultorio.",
-    },
-    {
-      name: "Programador",
-      description:
-        "Cuenta interna para soporte tecnico, con acciones para forzar el bot de WhatsApp y revisar un panel de errores.",
-    },
-  ],
-  screenshots: [
-    {
-      src: "/projects/consultorio/consultorio-01.jpg",
-      alt: "Captura del sistema Consultorio 1",
-      width: 1365,
-      height: 633,
-    },
-    {
-      src: "/projects/consultorio/consultorio-02.jpg",
-      alt: "Captura del sistema Consultorio 2",
-      width: 1365,
-      height: 631,
-    },
-    {
-      src: "/projects/consultorio/consultorio-03.jpg",
-      alt: "Captura del sistema Consultorio 3",
-      width: 1365,
-      height: 634,
-    },
-    {
-      src: "/projects/consultorio/consultorio-04.jpg",
-      alt: "Captura del sistema Consultorio 4",
-      width: 1363,
-      height: 627,
-    },
-  ],
-  stack: [
-    "Gestion de turnos",
-    "Pacientes",
-    "WhatsApp bot",
-    "Archivos",
-    "Exportacion",
-    "Cloudflare",
-  ],
-};
 
-const REPARANDO_PROJECT = {
-  name: "Repar-Ando",
-  repoUrl: "https://github.com/neyennahuel/Repar-Ando",
-  releasesUrl: "https://github.com/neyennahuel/Repar-Ando/releases",
-  description:
-    "Aplicacion hecha para mi trabajo tecnico. Centraliza control de stock de PCs, mantenimiento, insumos, notificaciones, agrupacion por equipos y configuracion personalizada de cada cuanto hacer los service.",
-  badges: [
-    "Proyecto propio",
-    "En uso",
-    "Instalador",
-    "Releases en GitHub",
-    "ES / EN / PT",
-  ],
-  highlights: [
-    {
-      title: "Stock y mantenimiento",
-      description:
-        "Controla stock de PCs, historiales de mantenimiento y frecuencia configurable de service por equipo.",
-    },
-    {
-      title: "Operacion diaria",
-      description:
-        "Incluye control simple de insumos, notificaciones y division por grupos para ordenar el trabajo tecnico.",
-    },
-    {
-      title: "Distribucion y actualizacion",
-      description:
-        "Se entrega con instalador y publica actualizaciones mediante releases en GitHub para mantenerla al dia.",
-    },
-  ],
-  stack: [
-    "Desktop app",
-    "Stock de PC",
-    "Mantenimiento",
-    "Insumos",
-    "Notificaciones",
-    "Multilenguaje",
-  ],
-  screenshots: [
-    {
-      src: "/projects/reparando/reparando-01.jpg",
-      alt: "Captura de Repar-Ando 1",
-      width: 1365,
-      height: 628,
-    },
-    {
-      src: "/projects/reparando/reparando-02.jpg",
-      alt: "Captura de Repar-Ando 2",
-      width: 1350,
-      height: 633,
-    },
-    {
-      src: "/projects/reparando/reparando-03.jpg",
-      alt: "Captura de Repar-Ando 3",
-      width: 1365,
-      height: 629,
-    },
-  ],
-};
+const FEATURED_PROJECTS: FeaturedProject[] = [
+  {
+    id: "consultorio",
+    eyebrow: "Proyecto destacado",
+    name: "Consultorio",
+    description:
+      "Sistema privado para profesionales de la salud y equipos de secretaria. Permite gestionar pacientes, asignar turnos, enviar confirmaciones automaticas por WhatsApp y administrar evoluciones, notas, archivos y exportaciones.",
+    badges: [
+      "Proyecto comercial",
+      "En funcionamiento",
+      "Codigo privado",
+      "Multiusuario",
+    ],
+    actions: [
+      {
+        label: "Ver sistema",
+        href: "https://consultorio.efectossaludybienestar.com.ar/pages/login.html",
+        variant: "primary",
+      },
+    ],
+    note: "Solucion implementada para clientes reales",
+    featureTitle: "Aspectos clave",
+    featureItems: [
+      {
+        title: "Agenda y pacientes",
+        description:
+          "Carga y seguimiento de pacientes desde una sola interfaz para el trabajo diario del consultorio.",
+      },
+      {
+        title: "Confirmaciones por WhatsApp",
+        description:
+          "Envio automatico de recordatorios el dia previo para reducir ausencias y mejorar la organizacion.",
+      },
+      {
+        title: "Evoluciones y adjuntos",
+        description:
+          "Modulo de evoluciones, notas internas, archivos y exportacion para seguimiento clinico y administrativo.",
+      },
+    ],
+    detailTitle: "Accesos y operacion",
+    detailItems: [
+      {
+        title: "Profesional",
+        description:
+          "Gestiona sus pacientes, asigna turnos y registra evoluciones, notas y archivos desde su cuenta.",
+      },
+      {
+        title: "Admin / Secretaria",
+        description:
+          "Da de alta o baja profesionales y tambien puede cargar turnos para la operacion diaria del consultorio.",
+      },
+      {
+        title: "Programador",
+        description:
+          "Cuenta interna para soporte tecnico, con acciones para forzar el bot de WhatsApp y revisar un panel de errores.",
+      },
+    ],
+    tags: [
+      "Gestion de turnos",
+      "Pacientes",
+      "WhatsApp bot",
+      "Archivos",
+      "Exportacion",
+      "Cloudflare",
+    ],
+    galleryTitle: "Capturas reales del sistema",
+    screenshots: [
+      {
+        src: "/projects/consultorio/consultorio-01.jpg",
+        alt: "Captura del sistema Consultorio 1",
+        width: 1365,
+        height: 633,
+      },
+      {
+        src: "/projects/consultorio/consultorio-02.jpg",
+        alt: "Captura del sistema Consultorio 2",
+        width: 1365,
+        height: 631,
+      },
+      {
+        src: "/projects/consultorio/consultorio-03.jpg",
+        alt: "Captura del sistema Consultorio 3",
+        width: 1365,
+        height: 634,
+      },
+      {
+        src: "/projects/consultorio/consultorio-04.jpg",
+        alt: "Captura del sistema Consultorio 4",
+        width: 1363,
+        height: 627,
+      },
+    ],
+  },
+  {
+    id: "reparando",
+    eyebrow: "Proyecto propio destacado",
+    name: "Repar-Ando",
+    description:
+      "Aplicacion hecha para mi trabajo tecnico. Centraliza control de stock de PCs, mantenimiento, insumos, notificaciones, agrupacion por equipos y configuracion personalizada de cada cuanto hacer los service.",
+    badges: [
+      "Proyecto propio",
+      "En uso",
+      "Instalador",
+      "Releases en GitHub",
+      "ES / EN / PT",
+    ],
+    actions: [
+      {
+        label: "Ver GitHub",
+        href: "https://github.com/neyennahuel/Repar-Ando",
+        variant: "primary",
+      },
+      {
+        label: "Ver releases",
+        href: "https://github.com/neyennahuel/Repar-Ando/releases",
+        variant: "secondary",
+      },
+    ],
+    note: "Instalador con actualizaciones publicadas",
+    featureTitle: "Aspectos clave",
+    featureItems: [
+      {
+        title: "Stock y mantenimiento",
+        description:
+          "Controla stock de PCs, historial de mantenimiento y frecuencia configurable de service por cada equipo.",
+      },
+      {
+        title: "Operacion diaria",
+        description:
+          "Incluye control simple de insumos, notificaciones y division por grupos para ordenar el trabajo tecnico.",
+      },
+      {
+        title: "Distribucion y actualizacion",
+        description:
+          "Se entrega con instalador y publica nuevas versiones mediante GitHub Releases para mantenerla al dia.",
+      },
+    ],
+    detailTitle: "Distribucion y alcance",
+    detailItems: [
+      {
+        title: "Frecuencia configurable",
+        description:
+          "Cada grupo o equipo puede definir cada cuanto corresponde hacer mantenimiento o service preventivo.",
+      },
+      {
+        title: "Multilenguaje",
+        description:
+          "La app esta preparada en espanol, ingles y portugues para facilitar su uso en distintos contextos.",
+      },
+      {
+        title: "Actualizaciones versionadas",
+        description:
+          "Las mejoras quedan ordenadas por release en GitHub, con un canal claro para descargar versiones nuevas.",
+      },
+    ],
+    tags: [
+      "Desktop app",
+      "Stock de PC",
+      "Mantenimiento",
+      "Insumos",
+      "Notificaciones",
+      "Multilenguaje",
+    ],
+    galleryTitle: "Capturas de Repar-Ando",
+    screenshots: [
+      {
+        src: "/projects/reparando/reparando-01.jpg",
+        alt: "Captura de Repar-Ando 1",
+        width: 1365,
+        height: 628,
+      },
+      {
+        src: "/projects/reparando/reparando-02.jpg",
+        alt: "Captura de Repar-Ando 2",
+        width: 1350,
+        height: 633,
+      },
+      {
+        src: "/projects/reparando/reparando-03.jpg",
+        alt: "Captura de Repar-Ando 3",
+        width: 1365,
+        height: 629,
+      },
+    ],
+  },
+];
 
 type Repo = {
   id: number;
@@ -174,8 +235,7 @@ export default async function Home() {
       <Navbar />
 
       <main className="px-6 pt-24 pb-24 text-foreground">
-
-                {/* HERO */}
+        {/* HERO */}
         <section
           id="inicio"
           className="min-h-[80vh] flex flex-col justify-center items-center text-center px-6"
@@ -212,7 +272,7 @@ export default async function Home() {
           </div>
         </section>
 
-                {/* SOBRE MI */}
+        {/* SOBRE MI */}
         <section id="sobre-mi" className="py-20 px-6">
           <div className="max-w-4xl mx-auto text-center bg-surface border border-border/60 rounded-3xl p-10 shadow-[var(--shadow)]">
             <h2 className="text-3xl md:text-4xl font-semibold mb-6">Sobre mi</h2>
@@ -220,7 +280,8 @@ export default async function Home() {
             <p className="text-lg text-muted leading-relaxed">
               Soy un Desarrollador Web en formacion, con experiencia trabajando
               en entornos tecnicos y orientado a la resolucion de problemas.
-              <br /><br />
+              <br />
+              <br />
               Actualmente continuo ampliando mis conocimientos en HTML, CSS,
               JavaScript, React y Next.js.
             </p>
@@ -230,7 +291,9 @@ export default async function Home() {
         {/* HABILIDADES */}
         <section id="habilidades" className="py-20 px-6">
           <div className="max-w-5xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-semibold mb-10">Habilidades</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold mb-10">
+              Habilidades
+            </h2>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
               {[
@@ -259,226 +322,10 @@ export default async function Home() {
           <div className="max-w-6xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-semibold mb-12">Proyectos</h2>
 
-            <div className="mb-14 rounded-[2rem] border border-border/60 bg-surface px-8 py-8 text-left shadow-[var(--shadow)]">
-              <p className="mb-4 text-xs uppercase tracking-[0.35em] text-muted">
-                Proyecto destacado
-              </p>
-
-              <div className="mb-5 flex flex-wrap gap-2">
-                {FEATURED_PROJECT.badges.map((badge) => (
-                  <span
-                    key={badge}
-                    className="rounded-full border border-border/60 bg-surface-muted px-3 py-1 text-sm text-foreground"
-                  >
-                    {badge}
-                  </span>
-                ))}
-              </div>
-
-              <div className="grid gap-8 md:grid-cols-[1.2fr_0.8fr] md:items-start">
-                <div>
-                  <h3 className="mb-4 text-3xl font-semibold text-foreground md:text-4xl">
-                    {FEATURED_PROJECT.name}
-                  </h3>
-
-                  <p className="max-w-3xl text-lg leading-relaxed text-muted">
-                    {FEATURED_PROJECT.description}
-                  </p>
-
-                  <div className="mt-8 flex flex-wrap gap-3">
-                    <a
-                      href={FEATURED_PROJECT.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="rounded-full bg-accent px-6 py-3 font-medium text-white shadow-lg shadow-blue-500/30 transition hover:-translate-y-0.5"
-                    >
-                      Ver sistema
-                    </a>
-                    <span className="rounded-full border border-border/60 bg-surface-muted px-6 py-3 text-sm font-medium text-muted">
-                      Solucion implementada para clientes reales
-                    </span>
-                  </div>
-                </div>
-
-                <div className="rounded-3xl border border-border/60 bg-surface-muted/70 p-6">
-                  <p className="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-muted">
-                    Lo que resuelve
-                  </p>
-
-                  <ul className="space-y-3 text-sm leading-relaxed text-muted">
-                    {FEATURED_PROJECT.highlights.map((highlight) => (
-                      <li key={highlight} className="flex gap-3">
-                        <span className="mt-2 h-2 w-2 rounded-full bg-accent" />
-                        <span>{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {FEATURED_PROJECT.stack.map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-full border border-border/60 bg-surface px-3 py-1 text-sm text-foreground"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-10 grid gap-8 xl:grid-cols-[0.8fr_1.2fr]">
-                <div className="rounded-3xl border border-border/60 bg-surface-muted/70 p-6">
-                  <p className="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-muted">
-                    Accesos por rol
-                  </p>
-
-                  <div className="grid gap-4">
-                    {FEATURED_PROJECT.roles.map((role) => (
-                      <div
-                        key={role.name}
-                        className="rounded-2xl border border-border/60 bg-surface p-4"
-                      >
-                        <h4 className="mb-2 text-base font-semibold text-foreground">
-                          {role.name}
-                        </h4>
-                        <p className="text-sm leading-relaxed text-muted">
-                          {role.description}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <p className="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-muted">
-                    Capturas reales del sistema
-                  </p>
-
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    {FEATURED_PROJECT.screenshots.map((screenshot) => (
-                      <div
-                        key={screenshot.src}
-                        className="overflow-hidden rounded-3xl border border-border/60 bg-surface shadow-sm"
-                      >
-                        <img
-                          src={`${BASE_PATH}${screenshot.src}`}
-                          alt={screenshot.alt}
-                          width={screenshot.width}
-                          height={screenshot.height}
-                          loading="lazy"
-                          className="h-auto w-full"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="mb-14 rounded-[2rem] border border-border/60 bg-surface px-8 py-8 text-left shadow-[var(--shadow)]">
-              <p className="mb-4 text-xs uppercase tracking-[0.35em] text-muted">
-                Proyecto propio destacado
-              </p>
-
-              <div className="mb-5 flex flex-wrap gap-2">
-                {REPARANDO_PROJECT.badges.map((badge) => (
-                  <span
-                    key={badge}
-                    className="rounded-full border border-border/60 bg-surface-muted px-3 py-1 text-sm text-foreground"
-                  >
-                    {badge}
-                  </span>
-                ))}
-              </div>
-
-              <div className="grid gap-8 xl:grid-cols-[1fr_1.05fr] xl:items-start">
-                <div>
-                  <h3 className="mb-4 text-3xl font-semibold text-foreground md:text-4xl">
-                    {REPARANDO_PROJECT.name}
-                  </h3>
-
-                  <p className="max-w-3xl text-lg leading-relaxed text-muted">
-                    {REPARANDO_PROJECT.description}
-                  </p>
-
-                  <div className="mt-8 flex flex-wrap gap-3">
-                    <a
-                      href={REPARANDO_PROJECT.repoUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="rounded-full bg-accent px-6 py-3 font-medium text-white shadow-lg shadow-blue-500/30 transition hover:-translate-y-0.5"
-                    >
-                      Ver GitHub
-                    </a>
-                    <a
-                      href={REPARANDO_PROJECT.releasesUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="rounded-full border border-border/70 bg-surface px-6 py-3 font-medium text-foreground transition hover:-translate-y-0.5 hover:shadow-md"
-                    >
-                      Ver releases
-                    </a>
-                    <span className="rounded-full border border-border/60 bg-surface-muted px-6 py-3 text-sm font-medium text-muted">
-                      Instalador con actualizaciones publicadas
-                    </span>
-                  </div>
-
-                  <div className="mt-8 grid gap-4">
-                    {REPARANDO_PROJECT.highlights.map((highlight) => (
-                      <div
-                        key={highlight.title}
-                        className="rounded-2xl border border-border/60 bg-surface-muted/70 p-5"
-                      >
-                        <h4 className="mb-2 text-base font-semibold text-foreground">
-                          {highlight.title}
-                        </h4>
-                        <p className="text-sm leading-relaxed text-muted">
-                          {highlight.description}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {REPARANDO_PROJECT.stack.map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-full border border-border/60 bg-surface px-3 py-1 text-sm text-foreground"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <p className="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-muted">
-                    Capturas de Repar-Ando
-                  </p>
-
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    {REPARANDO_PROJECT.screenshots.map((screenshot, index) => (
-                      <div
-                        key={screenshot.src}
-                        className={`overflow-hidden rounded-3xl border border-border/60 bg-surface shadow-sm ${
-                          index === 2 ? "sm:col-span-2" : ""
-                        }`}
-                      >
-                        <img
-                          src={`${BASE_PATH}${screenshot.src}`}
-                          alt={screenshot.alt}
-                          width={screenshot.width}
-                          height={screenshot.height}
-                          loading="lazy"
-                          className="h-auto w-full"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
+            <FeaturedProjects
+              projects={FEATURED_PROJECTS}
+              basePath={BASE_PATH}
+            />
 
             <div className="mb-8 text-left">
               <p className="mb-3 text-xs uppercase tracking-[0.35em] text-muted">
@@ -522,7 +369,9 @@ export default async function Home() {
                     </div>
                     <div className="relative z-10 p-6 text-left flex flex-col h-full pointer-events-none">
                       <div className="flex items-center justify-between mb-3">
-                        <h3 className="text-xl font-semibold text-foreground">{project.name}</h3>
+                        <h3 className="text-xl font-semibold text-foreground">
+                          {project.name}
+                        </h3>
                         <span className="text-sm text-muted">
                           ⭐ {project.stargazers_count}
                         </span>
@@ -575,19 +424,9 @@ export default async function Home() {
             )}
           </div>
         </section>
-
       </main>
 
       <Footer />
     </>
   );
 }
-
-
-
-
-
-
-
-
-
