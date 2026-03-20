@@ -11,6 +11,7 @@ const EXCLUDED_REPOS = new Set([
   "portfolio-pro",
   "Repar-Ando",
   "BurgerBite",
+  "LandingSWhittall",
 ]);
 
 const FEATURED_PROJECTS: FeaturedProject[] = [
@@ -197,6 +198,92 @@ const FEATURED_PROJECTS: FeaturedProject[] = [
         alt: "Hoja de calculo de BurgerBite",
         width: 875,
         height: 452,
+      },
+    ],
+  },
+  {
+    id: "sistemas-whittall",
+    eyebrow: "Proyecto destacado",
+    name: "Sistemas Whittall",
+    description:
+      "Landing institucional responsive para mi marca, pensada para presentar servicios de desarrollo web, automatizaciones y sistemas a medida con una identidad visual propia y foco comercial.",
+    badges: [
+      "Proyecto propio",
+      "En linea",
+      "Responsive",
+      "Dominio propio",
+      "Cloudflare",
+    ],
+    actions: [
+      {
+        label: "Ver sitio",
+        href: "https://www.swhittall.com.ar",
+        variant: "primary",
+      },
+      {
+        label: "Ver GitHub",
+        href: "https://github.com/neyennahuel/LandingSWhittall",
+        variant: "secondary",
+      },
+    ],
+    note: "Landing publicada con dominio propio",
+    featureTitle: "Aspectos clave",
+    featureItems: [
+      {
+        title: "Presentacion clara de servicios",
+        description:
+          "La estructura esta pensada para mostrar rapido que hago: landings, sistemas a medida y automatizaciones orientadas a negocio.",
+      },
+      {
+        title: "Marca propia y contacto directo",
+        description:
+          "Integra identidad visual propia, enlaces de contacto y un flujo simple para iniciar consultas por WhatsApp desde cualquier dispositivo.",
+      },
+      {
+        title: "Responsive y orientada a conversion",
+        description:
+          "La landing mantiene lectura clara en desktop y mobile, con secciones pensadas para ordenar servicios, trabajos realizados y cierre comercial.",
+      },
+    ],
+    detailTitle: "Operacion y despliegue",
+    detailItems: [
+      {
+        title: "Dominio real",
+        description:
+          "Se publica con dominio propio para funcionar como presencia comercial principal de la marca.",
+      },
+      {
+        title: "Cloudflare Tunnel",
+        description:
+          "El despliegue queda resuelto sobre servidor propio con Cloudflare, sin depender de una plataforma de hosting tradicional.",
+      },
+      {
+        title: "Trabajo de identidad",
+        description:
+          "El sitio toma como base el sistema de marca de Sistemas Whittall, combinando el logo oficial, el isotipo y una presentacion sobria.",
+      },
+    ],
+    tags: [
+      "Landing",
+      "Responsive",
+      "Marca propia",
+      "Next.js",
+      "Cloudflare",
+      "WhatsApp",
+    ],
+    galleryTitle: "Capturas de Sistemas Whittall",
+    screenshots: [
+      {
+        src: "/projects/swhittall/swhittall-01.png",
+        alt: "Vista desktop de Sistemas Whittall",
+        width: 1440,
+        height: 2200,
+      },
+      {
+        src: "/projects/swhittall/swhittall-02.png",
+        alt: "Vista mobile de Sistemas Whittall",
+        width: 430,
+        height: 2000,
       },
     ],
   },
